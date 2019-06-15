@@ -9,7 +9,7 @@ https://github.com/containernetworking/cni
 为了更好的理解`cni` plugin的基础，这里创建一个`mock` plugin来测试
 ### mock.conf
 这里只设置必要的属性，cni会通过`stdin`获取配置
-```
+``` json
 {
     "cniVersion":"0.4.0",
     "name":"test"
@@ -17,7 +17,7 @@ https://github.com/containernetworking/cni
 ```
 ### mock.go
 `mock` plugin只是为了测试不分配任何资源，所以这里简单的打印下输出
-```
+``` go
 package main
 import (
         "fmt"
@@ -44,7 +44,7 @@ func cmdDel(args *skel.CmdArgs) error {
 ```
 ### mock_test.go
 测试同样使用 [Ginkgo](https://onsi.github.io/ginkgo/) (BDD-stylec测试框架)
-```
+``` go
 package main
 import (
         "os"
