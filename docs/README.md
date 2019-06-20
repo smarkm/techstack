@@ -2,8 +2,8 @@
 Personal Technology stack
 
 # [![](icon/compute.png) 计算](compute/)
+## 数据处理
 ## 云计算
-## 边缘计算
 ## 区块链
 ## 物联网
 # [![](icon/network.png) 网络](network/)

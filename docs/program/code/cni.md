@@ -1,5 +1,5 @@
 [Home](/) > [编程](program/) > [Dump into Code](program/code/)
-# CNI
+# CNI (Container Network Interface)
 https://github.com/containernetworking/cni
 
 `CNI plugin 大部分参数通过环境变量设置`
