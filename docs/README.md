@@ -10,8 +10,8 @@ Personal Technology stack
 ## [Linux 网络](network/linux)
 ## [VM 网络]
 ## [Docker 网络](network/docker)
-## [链路协议]
-## [路由协议]
+## [链路协议](network/linklayer-p)
+## [路由协议](network/routing-p)
 ## [运营商网络](network/isp)
 
 # [![](icon/storage.png) 存储](storage/) 
