@@ -66,11 +66,40 @@ IPOIB (IP-over-InfiniBand),详细参考[IPOIB kernel documentation](https://www.
 
 ## Dummy
 Dummy interface是一个虚拟的接口类似loopbak，Dummy目的是提供packets的路由而不进行实际的转发（`通常用于测试目的`）
+```shell
+ip link add dm1 type dummy
+```
 
 ## IFB
 详细参考[https://wiki.linuxfoundation.org/networking/ifb](https://wiki.linuxfoundation.org/networking/ifb)
 
 ## ipip,gre,sit tunnel技术
+## ipip 
+在 [RFC2003](https://tools.ietf.org/html/rfc2003) 中定义，当ipip module在加载或者`ipip`设备在第一次创建的时候内核会先创建一个`tunl0`，当收到ipip协议的package的时候如果没有找到合适的设备处理会发到tunl0上，ipip header ：
+![ref](https://developers.redhat.com/blog/wp-content/uploads/2019/03/ipip.png)
+
+**Host 172.16.2.3**
+```shell
+ip tunnel add ipip1 mode ipip remote 172.16.2.4 local 172.16.2.3 ttl 64 &&
+ip link set ipip1 up &&
+ip route add 10.0.2.0/24 dev ipip1  &&
+ip addr add 10.0.1.2 dev ipip1
+```
+
+**Host 172.16.2.4**
+```shell
+ip tunnel add ipip1 mode ipip remote 172.16.2.3 local 172.16.2.4 ttl 64 &&
+ip link set ipip1 up &&
+ip route add 10.0.1.0/24 dev ipip1  &&
+ip addr add 10.0.2.2 dev ipip1
+```
+![](img/linux-ipip.png)
+![](img/linux-ipip-dump.png)
+## sit (simple internet transition)
+![](https://developers.redhat.com/blog/wp-content/uploads/2019/03/sit.png)
+## gre (Generic Routing Encapsulation)
+[RFC2748](https://tools.ietf.org/html/rfc2784)
+![](https://developers.redhat.com/blog/wp-content/uploads/2019/03/gre.png)
 ## VTI
 VTI（vritual Tunnel Interface）
 ## VRF
@@ -82,6 +111,7 @@ VRF（vritual Routing Forwarding）
 * [Linux Networking Documentation](https://www.kernel.org/doc/html/latest/networking/index.html)
 * [Introduction to Linux interfaces for virtual networking](https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking/#ipvlan)
 * [TUN/TAP](https://en.wikipedia.org/wiki/TUN/TAP)
+* [IPIP,SIT,GRE](https://developers.redhat.com/blog/2019/05/17/an-introduction-to-linux-virtual-interfaces-tunnels/)
 * [Linux Virtual Routing and Forwarding (VRF) ](https://www.kernel.org/doc/Documentation/networking/vrf.txt)
 * [CSDN VRF的原理和实现](https://blog.csdn.net/gami1226/article/details/78188165)
 * [Working with VRF on Linux](http://www.routereflector.com/2016/11/working-with-vrf-on-linux/)
