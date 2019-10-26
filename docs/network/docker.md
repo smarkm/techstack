@@ -20,7 +20,7 @@ docker 使用基于软件实现的bridge运行连接到同一个bridge的容器�
 ## Macvlan
 Docker提供macvlan网络模式是为了解决一些遗留系统的问题，如果能用`bridge`或`overlay`网络解决尽量用，推荐尽量用这两个网络模型，docker中的`macvlan`和linux中的`macvlan`行为一致,详细参见 [Linux Macvlan Network](network/linux#macvlan) 和 [Docker Macvlan Network](https://docs.docker.com/network/macvlan/)
 ## Overlay
-
+![](img/docker-overlay.png)
 
 
 ## 参考

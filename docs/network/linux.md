@@ -55,6 +55,17 @@ Linux Vlan 是采用基于Tag的Vlan技术，所以vlan直接的通信要能处�
 ## VXLAN
 VXLAN (Virtual eXtensible Local Area Network) 是一个tunnuling的协议，用来解决802.1q的VLAN id(4096)限制问题，请参考 [IETF RFC 7348](https://tools.ietf.org/html/rfc7348)，VXLAN也是实现Overlay网络的重要方式,下图展示了通过vxlan实现过主机网络，vxlan在docker网络和kubernets各种网络插件的实现中都有使用
 ![](img/linux-vxlan.png)
+## Bond
+Linux Bond Driver提供7中模式：
+* balance-rr （默认）
+* active-backup 
+* balance-xor
+* broadcast 
+* 802.3ad
+* balance-tlb
+* balance-alb
+![](img/linux-bond.png)
+
 ## IPVALN
 ## VCAN
 VCAN (Virtual Controller Area Network) driver 提供一个VCAN接口，用户可以通过接口发送/接受CAN数据，详细参考[kernel CAN documentation](https://www.kernel.org/doc/Documentation/networking/can.txt)
