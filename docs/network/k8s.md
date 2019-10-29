@@ -8,6 +8,9 @@
 * 通过路由方案解决
 
 ## Flannel
+![](img/flannel.png)
+https://github.com/coreos/flannel   
+https://github.com/coreos/flannel/blob/master/Documentation/backends.md
 
 ## Calico
 
