@@ -6,9 +6,9 @@ Personal Technology stack
 ## 云计算
 ## 区块链
 ## 物联网
-# [![](icon/network.png) 网络](network/)
+# [![](icon/network.png) 网络(6)](network/)
 ## [Linux 网络](network/linux)
-## [VM 网络]
+<!-- ## [VM 网络]() -->
 ## [Docker 网络](network/docker)
 ## [Kubernets 网络](network/k8s)
 ## [链路协议](network/linklayer-p)
