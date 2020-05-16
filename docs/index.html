@@ -34,12 +34,14 @@
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
+  var idS = location.href.replace("smark.freecoop.net/techstack/#","");
   const gitalk = new Gitalk({
     clientID: 'af20e1350bf73b568905',
     clientSecret: '890273c2cedb4427ba715514b798a6a377ae58b7',
     repo: 'techstack',
     owner: 'smarkm',
     admin: ['smarkm'],
+    id: idS,
     distractionFreeMode: false
   })
 </script>
