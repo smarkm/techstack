@@ -19,10 +19,25 @@
 <body>
   <div id="app"></div>
   <script>
+    function getUrl() {
+      return location.href.replace(/\?.*/,"");;
+    }
+    var oldURL = getUrl()
     window.$docsify = {
       name: '',
       repo: '',
       //loadSidebar: true
+      plugins:[
+        function (hook,vm) {
+          window.onhashchange=function(event){
+            if (getUrl()!=oldURL) {
+              gitalk.id = md5(getUrl())
+            }
+            oldURL = getUrl();
+            //console.log(getUrl());
+          }
+        }
+      ]
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
